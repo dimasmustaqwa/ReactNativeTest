@@ -1,0 +1,237 @@
+
+
+
+// import React from "react";
+// import { View, Text, Image, ScrollView, FlatList, StatusBar, Alert, TouchableHighlight, Platform } from "react-native";
+
+// import Images from "./Images";
+// import CalendarStyle from "./CalendarStyle";
+// import CollapsibleToolbar from 'react-native-collapsible-toolbar';
+
+// class DetailCalendarScreen extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       titleList: 'Long Text Judul Long Text Judul Long Text Judul Long Text Judul',
+//       dataList: [
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//         {
+//           image: 'https://s3-ap-southeast-1.amazonaws.com/8villages/7609637e-7539-4c14-b188-f56eed848906-mobile.jpg',
+//           title: 'Peluncuran Indonesian Arts and Cultural Club',
+//           location: 'Indonesian',
+//           time: '07/01/2018 07:00:00'
+//         },
+//       ]
+//     }
+//   }
+
+//   componentWillMount() {
+//     StatusBar.setBarStyle('light-content');
+
+//     if (Platform.OS === 'android') {
+//       StatusBar.setTranslucent(true);
+//       StatusBar.setBackgroundColor('rgba(0, 0, 0, 0.2)', true);
+//     }
+//   }
+//   test() {
+//     console.log(this.props);
+//   }
+
+//   listCalendar() {
+//     const { dataList } = this.state;
+//     switch (true) {
+//       case (dataList.length !== 0):
+//       case (dataList !== undefined):
+//         return (
+//           <View style={{ marginBottom: 60 }}>
+//             <FlatList
+//               data={dataList}
+//               renderItem={this.contentCalender}
+//               keyExtractor={(item, index) => index.toString()}
+//             />
+//           </View>
+//         );
+//       default:
+//         return (
+//           <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//             <Text style={{ backgroundColor: 'white' }}>Lagi Loading</Text>
+//           </View>
+//         );
+//     }
+//   }
+
+//   contentCalender({ item, index }) {
+//     return (
+//       <TouchableHighlight>
+//         <View style={CalendarStyle.containerListCalendar} key={index}>
+//           <View style={CalendarStyle.imageListCalendar}>
+//             <Image source={{ uri: item.image }} style={CalendarStyle.imageListCalendar} />
+//           </View>
+
+//           <View style={{ flex: 1 }}>
+//             <View>
+//               <Text numberOfLines={1} ellipsizeMode='tail'>{item.title}</Text>
+//             </View>
+//             <View style={CalendarStyle.rowWithImage}>
+//               <Image source={Images.iconCalendarEvent} style={{ height: 10, width: 10, marginRight: 10 }} resizeMode={'contain'} />
+//               <Text style={{ fontSize: 10, }} numberOfLines={1} ellipsizeMode='tail'>{item.time}</Text>
+//             </View>
+//             <View style={CalendarStyle.rowWithImage}>
+//               <Image source={Images.iconCalendarLocation} style={{ height: 10, width: 10, marginRight: 10 }} resizeMode={'contain'} />
+//               <Text style={{ fontSize: 10, }} numberOfLines={1} ellipsizeMode='tail'>{item.location}</Text>
+//             </View>
+//           </View>
+
+//         </View>
+//       </TouchableHighlight>
+//     );
+//   }
+
+//   loadMore() {
+//     console.log('jalanin ini')
+//   }
+
+//   renderContent = () => (
+//     <View>
+//       {new Array(20).fill().map((_, i) => (
+//         <View
+//           // eslint-disable-next-line
+//           key={i}
+//           style={{
+//             backgroundColor: '#F5F5F5',
+//             padding: 10,
+//             borderBottomWidth: 1,
+//             borderBottomColor: '#E5E5E5'
+//           }}
+//         >
+//           <Text>{`Item ${i + 1}`}</Text>
+//         </View>
+//       ))}
+//     </View>
+//   );
+//   renderNavBar = () => (
+//     <View
+//       style={{
+//         flexDirection: 'row',
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         flex: 1,
+//         height: 20
+//       }}
+//     >
+//       <Text style={{ textAlign: 'center' }}>Title</Text>
+//     </View>
+//   );
+//   render() {
+//     console.log(this);
+//     const { titleList, dataList } = this.state;
+
+//     const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
+//       console.log('test', contentOffset.y);
+//       const paddingToBottom = 20;
+//       return layoutMeasurement.height + contentOffset.y >=
+//         contentSize.height - paddingToBottom;
+//     };
+
+//     return (
+//       <React.Fragment>
+//         <View style={{ height: '100%' }}>
+//           <CollapsibleToolbar
+//             renderContent={this.renderContent}
+//             renderNavBar={this.renderNavBar}
+//             imageSource='https://lorempixel.com/400/300/'
+//             collapsedNavBarBackgroundColor='#FFF'
+//             translucentStatusBar
+//             toolBarHeight={300}
+//           />
+//         </View>
+//         {/* <View style={CalendarStyle.containerCalendar}>
+
+//           <View style={CalendarStyle.headerCalendar}>
+//             <View style={{ marginRight: 10 }} >
+//               <Image source={Images.iconLeftArrow} style={{ height: 16, width: 16, marginRight: 10 }} resizeMode={'contain'} />
+//             </View>
+//             <Text style={CalendarStyle.textCalendar} numberOfLines={1} ellipsizeMode='tail'>{titleList}</Text>
+//           </View>
+
+//           <ScrollView
+//             onScroll={({ nativeEvent }) => {
+//               if (isCloseToBottom(nativeEvent)) {
+//                 this.loadMore();
+//               }
+//             }}
+//           >
+//             {this.listCalendar()}
+//           </ScrollView>
+//         </View> */}
+//       </React.Fragment>
+//     );
+//   }
+// }
+
+// export default DetailCalendarScreen;
